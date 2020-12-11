@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="debitcredit05_report_inherit_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="sumdebit" t-value="0.00"/>
+                <t t-set="sumcredit" t-value="0.00"/>
+                <div class="header">
+                    <style>
+                        @font-face
+                        {
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        .font_fam{
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        table.table-bordered1{
+                        border:1px solid black;
+                        width: 100%;
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        table.table-bordered1{
+                        border:1px solid white;
+                        margin-top:10px;
+                        border-collapse: collapse;
+                        width: 100%;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; th{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-left: 1px solid white;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; tbody &gt; tr &gt; td{
+                        border:0px solid white;
+                        border-left: 1px solid white;
+                        border-collapse: collapse;
+                        height: 40px;
+                        }
+                        table.table-bordered1 &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+                        }
+                        .td_top{
+                        border-top:#000 solid 1px;
+                        }
+                        .td_left{
+                        border-left:#000 solid 1px;
+                        }
+                        .td_right{
+                        border-right:#000 solid 1px;
+                        }
+                        .td_bott{
+                        border-bottom:#000 solid 1px;
+                        }
+                        .word_wrap{word-wrap: break-word;}
+                    </style>
+                    <table width="100%" class="font_fam">
+
+                        <tr>
+                            <td width="100%" style="text-align:center;">
+
+                                <font style="font-size: 15px;">
+                                    <font style="font-size: 16px;">
+                                        <strong><span t-field="o.company_id.name"/></strong>&amp;nbsp;<br/>
+                                        <strong>สมุดรายวันจ่าย<br/>Payment Voucher</strong>
+                                    </font>
+                                </font>
+
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <table width="100%" class="font_fam">
+                        <tr class="td_bott">
+                            <th>
+                                <table width="100%" class="font_fam">
+                                    <tr>
+                                        <td >
+                                            <font style="font-size: 15px;">
+                                                <t t-if="o.partner_id">
+                                                    <strong>จายใหแก่/To</strong><br/>
+                                                    <span t-field="o.partner_id.name"/>
+                                                </t>
+                                                <t t-if="not o.partner_id">
+                                                    <strong>จายใหแก่/To</strong><br/>
+                                                    <span t-field="o.supplier_name_text"/>
+                                                </t>
+                                            </font>
+                                        </td>
+                                        <td width="18%" style="text-align: center">
+                                            <font style="font-size: 15px;">
+                                                <t t-if="o.name">
+                                                    <strong>เลขที่/Number</strong><br/>
+                                                    <span t-field="o.name"/>
+                                                </t>
+                                            </font>
+                                        </td>
+                                        <td width="15%" style="text-align: center">
+                                            <font style="font-size: 15px;">
+                                                <t t-if="o.date">
+                                                    <strong>วันที่/Date</strong><br/>
+                                                    <span t-field="o.date"/>
+                                                </t>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%" class="font_fam">
+                                    <tr>
+                                        <td>
+                                            <font style="font-size:15px;">
+<!--                                                <t t-if="o.narration">-->
+<!--                                                    <div class="col-xs-12">-->
+<!--                                                        <strong>รายละเอียด/Description:</strong>&amp;nbsp;&amp;nbsp;<span t-field="o.narration"/><br/>-->
+<!--                                                    </div>-->
+<!--                                                </t>-->
+                                                <t t-if="o.ref">
+                                                    <div class="col-xs-12">
+                                                        <strong>อ้างอิง/Reference:</strong>&amp;nbsp;&amp;nbsp;<span t-field="o.ref"/><br/>
+                                                    </div>
+                                                </t>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </th>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="page">
+                    <style>
+                        @font-face
+                        {
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        .font_fam{
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        table.table-bordered1{
+                        border:1px solid black;
+                        width: 100%;
+                        font-family: SarabunPSK;
+                        src: local('United'), url("/itaas_print_account_report/static/THSarabun.ttf") format('opentype');
+                        }
+                        table.table-bordered1{
+                        border:1px solid white;
+                        margin-top:10px;
+                        border-collapse: collapse;
+                        width: 100%;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; th{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-left: 1px solid white;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; tbody &gt; tr &gt; td{
+                        border:0px solid white;
+                        border-left: 1px solid white;
+                        border-collapse: collapse;
+                        height: 40px;
+                        }
+                        table.table-bordered1 &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+                        }
+                        .td_top{
+                        border-top:#000 solid 1px;
+                        }
+                        .td_left{
+                        border-left:#000 solid 1px;
+                        }
+                        .td_right{
+                        border-right:#000 solid 1px;
+                        }
+                        .td_bott{
+                        border-bottom:#000 solid 1px;
+                        }
+                        .word_wrap{word-wrap: break-word;}
+                    </style>
+                    <!--                    <div class="col-xs-12">-->
+                    <table width="100%" class="table table-condensed font_fam" style="font-size: 15px; padding-top:30px;">
+                        <thead>
+                            <tr style="height:30px;">
+                                <th width="10%" style="text-align:center">
+                                    <font>ลำดับที่/No.</font>
+                                </th>
+                                <th width="30%" class="col-xs-2" style="text-align:center">
+                                    <font>รหัสบัญชี/Acc Number</font>
+                                </th>
+                                <th width="40%" class="col-xs-2" style="text-align:left">
+                                    <font>ชื่อบัญชี/Acc Name</font>
+                                </th>
+                                <!--<th class="col-xs-5" style="text-align:left">-->
+                                <!--<font style="font-size: 12px;">รายละเอียด/Description</font>-->
+                                <!--</th>-->
+                                <th width="10%" class="col-xs-2" style="text-align:center">
+                                    <font>เดบิท/Debit</font>
+                                </th>
+                                <th width="10%" class="col-xs-2" style="text-align:center">
+                                    <font>เครดิต/Credit</font>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <t t-set="i" t-value="1"/>
+                            <t t-foreach="o.line_ids" t-as="l">
+                                <tr>
+                                    <td style="text-align:center">
+                                        <font>
+                                            <span t-esc="i"/>
+                                        </font>
+                                    </td>
+                                    <t t-set="i" t-value="i+1"/>
+                                    <!--<t t-set="count" t-value="count + (len(l.account_id.code)/60) + 1"/>-->
+                                    <td style="text-align:center">
+                                        <font>
+                                            <span t-field="l.account_id.code"/>
+                                        </font>
+                                    </td>
+                                    <td style="text-align:left">
+                                        <font>
+                                            <span t-field="l.account_id.name"/>
+                                        </font>
+                                    </td>
+                                    <!--<td style="text-align:left">-->
+                                    <!--<font style="font-size: 12px;">-->
+                                    <!--<span t-field="l.name"/>-->
+                                    <!--</font>-->
+                                    <!--</td>-->
+                                    <td style="text-align:right">
+                                        <t t-if="l.debit == 0.00">
+                                            <span/>
+                                        </t>
+                                        <t t-if="l.debit != 0.00">
+                                            <t t-set="sumdebit" t-value="sumdebit + l.debit "/>
+                                            <font>
+                                                <span t-esc="'{0:,.2f}'.format(l.debit)"/>
+                                            </font>
+                                        </t>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <t t-if="l.credit == 0.00">
+                                            <span/>
+                                        </t>
+                                        <t t-if="l.credit != 0.00">
+                                            <t t-set="sumcredit" t-value="sumcredit + l.credit "/>
+                                            <font>
+                                                <span t-esc="'{0:,.2f}'.format(l.credit)"/>
+                                            </font>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+
+                        </tbody>
+                    </table>
+                    <table width="100%" class="table table-bordered font_fam" style="font-size: 15px;">
+                        <tr style="height:30px;" class="font_fam">
+                            <td width="70%">
+                                <strong> &amp;nbsp;หมายเหตุ:</strong><br/>
+                                 <span t-field="o.narration"/>
+                            </td>
+                            <td width="10%" style="text-align:right">
+                                <font>
+                                    <span>รวม</span>
+                                </font>
+                            </td>
+                            <td width="10%" style="text-align:right">
+                                <font>
+                                    <span t-esc="'{0:,.2f}'.format(sumdebit)"/>
+                                </font>
+                            </td>
+                            <td width="10%" style="text-align:right">
+                                <font>
+                                    <span t-esc="'{0:,.2f}'.format(sumcredit)"/>
+                                </font>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <table width="100%" class="table table-bordered font_fam" style="font-size: 15px;">
+                        <tr style="height:30px;" align="center" class="font_fam">
+                            <td width="10%">เลขที่เช็ค <br/>Cheque No.</td>
+                            <td width="10%">ธนาคาร/สาขา <br/>Bank/Branch</td>
+                            <td width="10%">วันที่เช็ค <br/>Cheque Date</td>
+                            <td width="30%">ชื่อเจ้าหนี้ <br/>Vendor Name</td>
+                            <td width="10%">จำนวนเงิน Amount</td>
+                            <td width="30%">จำนวนเงินเป็นตัวอักษร <br/></td>
+                        </tr>
+                        <tr style="height:50px;" align="center" class="font_fam">
+                            <td width="10%"/>
+                            <td width="10%"/>
+                            <td width="10%"/>
+                            <td width="30%"/>
+                            <td width="10%"/>
+                            <td width="30%"><span t-esc="o.baht_text(sumcredit)"/></td>
+                        </tr>
+                    </table>
+                    <!--                    </div>-->
+                    <div class="col-xs-12" style="margin-top:-30px;">
+                        <table class="table table-bordered font_fam" width="100%" align="center" style="padding-top:-10px;">
+                            <tr class="font_fam">
+                                <td colspan="3">
+                                    <div style="text-align: center">
+                                        <font style="font-size: 15px;">
+
+                                            <!--                                            <span>ผู้จัดทำ</span><br/>-->
+
+                                            <span>_____________________</span><br/>
+                                            <span>PREPARED BY/ผู้ทำ</span>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td colspan="3">
+                                    <div style="text-align: center">
+                                        <font style="font-size: 15px;">
+
+                                            <!--                                            <span>ผู้ตรวจสอบ</span><br/>-->
+
+                                            <span>_____________________</span><br/>
+                                            <span>CHECKED BY/ผู้ตรวจ</span>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td colspan="3">
+                                    <div style="text-align: center">
+                                        <font style="font-size: 15px;">
+                                            <!--                                            <span>ผู้อนุมัติ</span><br/>-->
+
+                                            <span>_____________________</span><br/>
+                                            <span>PAID/ผู้จ่าย</span>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td colspan="3">
+                                    <div style="text-align: center">
+                                        <font style="font-size: 15px;">
+                                            <!--                                            <span>ผู้อนุมัติ</span><br/>-->
+
+                                            <span>_____________________</span><br/>
+                                            <span>APPROVED/ผู้อนุมัติ</span>
+                                        </font>
+                                    </div>
+                                </td>
+                                <td colspan="3">
+                                    <div style="text-align: center">
+                                        <font style="font-size: 15px;">
+                                            <!--                                            <span>ผู้อนุมัติ</span><br/>-->
+
+                                            <span>_____________________</span><br/>
+                                            <span>RECORDED/ผู้ลงบัญชี</span>
+                                        </font>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="paperformat_A5_RBS_payment_voucher" model="report.paperformat">
+        <field name="name">A5_RBS</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">32</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="page_height">140</field>
+        <field name="page_width">210</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">25</field>
+        <field name="dpi">90</field>
+    </record>
+    <report
+            id="debitcredit05_report_inherit"
+            model="account.move"
+            menu="True"
+            report_type="qweb-pdf"
+            string="สมุดรายวันจ่าย"
+            paperformat="itaas_print_account_report.paperformat_A5_RBS_payment_voucher"
+            name="itaas_print_account_report.debitcredit05_report_inherit_id"
+            file="itaas_print_account_report.debitcredit05_report_inherit_id"
+    />
+</odoo>

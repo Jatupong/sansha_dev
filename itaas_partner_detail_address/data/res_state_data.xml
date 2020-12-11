@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <data  noupdate="1">
+  <!--        All state with unique ID with refer to country base.th-->
+  <record id="KBI_id" model="res.country.state"><field name="name">กระบี่</field> <field name="code">KBI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="BKK_id" model="res.country.state"><field name="name">กรุงเทพมหานคร</field> <field name="code">BKK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="KRI_id" model="res.country.state"><field name="name">กาญจนบุรี</field> <field name="code">KRI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="KSN_id" model="res.country.state"><field name="name">กาฬสินธุ์</field> <field name="code">KSN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="KPT_id" model="res.country.state"><field name="name">กำแพงเพชร</field> <field name="code">KPT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="KKN_id" model="res.country.state"><field name="name">ขอนแก่น</field> <field name="code">KKN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CTI_id" model="res.country.state"><field name="name">จันทบุรี</field> <field name="code">CTI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CCO_id" model="res.country.state"><field name="name">ฉะเชิงเทรา</field> <field name="code">CCO</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CBI_id" model="res.country.state"><field name="name">ชลบุรี</field> <field name="code">CBI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CNT_id" model="res.country.state"><field name="name">ชัยนาท</field> <field name="code">CNT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CPM_id" model="res.country.state"><field name="name">ชัยภูมิ</field> <field name="code">CPM</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CPN_id" model="res.country.state"><field name="name">ชุมพร</field> <field name="code">CPN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CRI_id" model="res.country.state"><field name="name">เชียงราย</field> <field name="code">CRI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="CMI_id" model="res.country.state"><field name="name">เชียงใหม่</field> <field name="code">CMI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="TRG_id" model="res.country.state"><field name="name">ตรัง</field> <field name="code">TRG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="TRT_id" model="res.country.state"><field name="name">ตราด</field> <field name="code">TRT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="TAK_id" model="res.country.state"><field name="name">ตาก</field> <field name="code">TAK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NYK_id" model="res.country.state"><field name="name">นครนายก</field> <field name="code">NYK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NPT_id" model="res.country.state"><field name="name">นครปฐม</field> <field name="code">NPT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NPM_id" model="res.country.state"><field name="name">นครพนม</field> <field name="code">NPM</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NMA_id" model="res.country.state"><field name="name">นครราชสีมา</field> <field name="code">NMA</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NRT_id" model="res.country.state"><field name="name">นครศรีธรรมราช</field> <field name="code">NRT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NSN_id" model="res.country.state"><field name="name">นครสวรรค์</field> <field name="code">NSN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NBI_id" model="res.country.state"><field name="name">นนทบุรี</field> <field name="code">NBI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NWT_id" model="res.country.state"><field name="name">นราธิวาส</field> <field name="code">NWT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NAN_id" model="res.country.state"><field name="name">น่าน</field> <field name="code">NAN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="BKN_id" model="res.country.state"><field name="name">บึงกาฬ</field> <field name="code">BKN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="BRM_id" model="res.country.state"><field name="name">บุรีรัมย์</field> <field name="code">BRM</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PTN_id" model="res.country.state"><field name="name">ปทุมธานี</field> <field name="code">PTN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PKN_id" model="res.country.state"><field name="name">ประจวบคีรีขันธ์</field> <field name="code">PKN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PRI_id" model="res.country.state"><field name="name">ปราจีนบุรี</field> <field name="code">PRI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PTT_id" model="res.country.state"><field name="name">ปัตตานี</field> <field name="code">PTT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="AYA_id" model="res.country.state"><field name="name">พระนครศรีอยุธยา</field> <field name="code">AYA</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PYO_id" model="res.country.state"><field name="name">พะเยา</field> <field name="code">PYO</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PNA_id" model="res.country.state"><field name="name">พังงา</field> <field name="code">PNA</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PLG_id" model="res.country.state"><field name="name">พัทลุง</field> <field name="code">PLG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PCT_id" model="res.country.state"><field name="name">พิจิตร</field> <field name="code">PCT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PLK_id" model="res.country.state"><field name="name">พิษณุโลก</field> <field name="code">PLK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PBI_id" model="res.country.state"><field name="name">เพชรบุรี</field> <field name="code">PBI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PNB_id" model="res.country.state"><field name="name">เพชรบูรณ์</field> <field name="code">PNB</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PRE_id" model="res.country.state"><field name="name">แพร่</field> <field name="code">PRE</field> <field name='country_id' ref='base.th'/></record>
+  <record id="PKT_id" model="res.country.state"><field name="name">ภูเก็ต</field> <field name="code">PKT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="MKM_id" model="res.country.state"><field name="name">มหาสารคาม</field> <field name="code">MKM</field> <field name='country_id' ref='base.th'/></record>
+  <record id="MDH_id" model="res.country.state"><field name="name">มุกดาหาร</field> <field name="code">MDH</field> <field name='country_id' ref='base.th'/></record>
+  <record id="MSN_id" model="res.country.state"><field name="name">แม่ฮ่องสอน</field> <field name="code">MSN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="YST_id" model="res.country.state"><field name="name">ยโสธร</field> <field name="code">YST</field> <field name='country_id' ref='base.th'/></record>
+  <record id="YLA_id" model="res.country.state"><field name="name">ยะลา</field> <field name="code">YLA</field> <field name='country_id' ref='base.th'/></record>
+  <record id="RET_id" model="res.country.state"><field name="name">ร้อยเอ็ด</field> <field name="code">RET</field> <field name='country_id' ref='base.th'/></record>
+  <record id="RNG_id" model="res.country.state"><field name="name">ระนอง</field> <field name="code">RNG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="RYG_id" model="res.country.state"><field name="name">ระยอง</field> <field name="code">RYG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="RBR_id" model="res.country.state"><field name="name">ราชบุรี</field> <field name="code">RBR</field> <field name='country_id' ref='base.th'/></record>
+  <record id="RUP_id" model="res.country.state"><field name="name">ลพบุรี</field> <field name="code">RUP</field> <field name='country_id' ref='base.th'/></record>
+  <record id="LPG_id" model="res.country.state"><field name="name">ลำปาง</field> <field name="code">LPG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="LPN_id" model="res.country.state"><field name="name">ลำพูน</field> <field name="code">LPN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="LEI_id" model="res.country.state"><field name="name">เลย</field> <field name="code">LEI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SSK_id" model="res.country.state"><field name="name">ศรีสะเกษ</field> <field name="code">SSK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SNK_id" model="res.country.state"><field name="name">สกลนคร</field> <field name="code">SNK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SKA_id" model="res.country.state"><field name="name">สงขลา</field> <field name="code">SKA</field> <field name='country_id' ref='base.th'/></record>
+  <record id="STN_id" model="res.country.state"><field name="name">สตูล</field> <field name="code">STN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SPK_id" model="res.country.state"><field name="name">สมุทรปราการ</field> <field name="code">SPK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SMK_id" model="res.country.state"><field name="name">สมุทรสงคราม</field> <field name="code">SMK</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SKN_id" model="res.country.state"><field name="name">สมุทรสาคร</field> <field name="code">SKN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SKW_id" model="res.country.state"><field name="name">สระแก้ว</field> <field name="code">SKW</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SRB_id" model="res.country.state"><field name="name">สระบุรี</field> <field name="code">SRB</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SBR_id" model="res.country.state"><field name="name">สิงห์บุรี</field> <field name="code">SBR</field> <field name='country_id' ref='base.th'/></record>
+  <record id="STI_id" model="res.country.state"><field name="name">สุโขทัย</field> <field name="code">STI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SPB_id" model="res.country.state"><field name="name">สุพรรณบุรี</field> <field name="code">SPB</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SNI_id" model="res.country.state"><field name="name">สุราษฎร์ธานี</field> <field name="code">SNI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="SRN_id" model="res.country.state"><field name="name">สุรินทร์</field> <field name="code">SRN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NKI_id" model="res.country.state"><field name="name">หนองคาย</field> <field name="code">NKI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="NBP_id" model="res.country.state"><field name="name">หนองบัวลำภู</field> <field name="code">NBP</field> <field name='country_id' ref='base.th'/></record>
+  <record id="ATG_id" model="res.country.state"><field name="name">อ่างทอง</field> <field name="code">ATG</field> <field name='country_id' ref='base.th'/></record>
+  <record id="ACR_id" model="res.country.state"><field name="name">อำนาจเจริญ</field> <field name="code">ACR</field> <field name='country_id' ref='base.th'/></record>
+  <record id="UDN_id" model="res.country.state"><field name="name">อุดรธานี</field> <field name="code">UDN</field> <field name='country_id' ref='base.th'/></record>
+  <record id="UTT_id" model="res.country.state"><field name="name">อุตรดิตถ์</field> <field name="code">UTT</field> <field name='country_id' ref='base.th'/></record>
+  <record id="UTI_id" model="res.country.state"><field name="name">อุทัยธานี</field> <field name="code">UTI</field> <field name='country_id' ref='base.th'/></record>
+  <record id="UBN_id" model="res.country.state"><field name="name">อุบลราชธานี</field> <field name="code">UBN</field> <field name='country_id' ref='base.th'/></record>
+
+
+
+
+
+ </data>
+</odoo>

@@ -1,0 +1,21 @@
+<odoo>
+	<!-- inherit res.company form -->
+	<record id="view_account_journal_form_show_cn_sequence" model="ir.ui.view">
+		<field name="name">account.journal.form.show.sequence</field>
+		<field name="model">account.journal</field>
+		<field name="inherit_id" ref="account.view_account_journal_form"/>
+		<field name="arch" type="xml">
+			<field name="refund_sequence" position="attributes">
+				<attribute name="readonly">False</attribute>
+				<attribute name="groups">account.group_account_manager</attribute>
+
+			</field>
+			<field name="refund_sequence_id" position="attributes">
+				<attribute name="readonly">False</attribute>
+				<attribute name="groups">account.group_account_manager</attribute>
+			</field>
+
+		</field>
+	</record>
+
+</odoo>

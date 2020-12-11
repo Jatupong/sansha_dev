@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="form_create_sale_quotation" model="ir.ui.view">
+        <field name="name">form.create.sale.quotation</field>
+        <field name="model">create.sale.quotation</field>
+        <field name="arch" type="xml">
+            <form string="Create Sale Quotation">
+                <field name="line_ids">
+                    <tree create="false" editable="bottom">
+                        <field name="create_quote_id" invisible="1"/>
+                        <field name="sale_line_id" invisible="1"/>
+                        <field name="product_id" readonly="1"/>
+                        <field name="partner_id" options="{'no_create': True}"/>
+                        <field name="remaining_qty" readonly="1"/>
+                        <field name="order_qty"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button string="Create Quotation" name="create_quotation" type="object" class="oe_highlight"/>&#160;&#160;
+                    <button string="Close Window" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_sale_quotation" model="ir.actions.act_window">
+        <field name="name">Create Sale Quotation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">create.sale.quotation</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="form_create_sale_quotation"/>
+        <field name="binding_model_id" ref="itaas_blanket_sale_order.model_create_sale_quotation"/>
+    </record>
+</odoo>

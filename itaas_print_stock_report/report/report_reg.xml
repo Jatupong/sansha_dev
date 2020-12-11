@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="paperformat_A4_Zero_Margin_Landed_costs" model="report.paperformat">
+            <field name="name">A4_Zero_Margin_Landed Cost</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">80</field>
+            <field name="margin_bottom">70</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">68</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <report
+                id="report_landed_cost"
+                model="stock.landed.cost"
+                menu="True"
+                report_type="qweb-pdf"
+                string="Landed Costs"
+                paperformat="paperformat_A4_Zero_Margin_Landed_costs"
+                name="itaas_print_stock_report.report_landed_costs_id"
+                file="itaas_print_stock_report.report_landed_costs_id"
+        />
+
+    </data>
+</openerp>

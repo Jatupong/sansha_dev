@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+	<!--customer sale report -->
+	<record id="view_customer_sale_report" model="ir.ui.view">
+		<field name="name">Customer Sales Report</field>
+		<field name="model">customer.sale.report</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Customer Sales Reports">
+	            <group col="4" colspan="4">
+                    <field name="date_from" required="1"/>
+	            	<field name="date_to" required="1"/>
+<!--					<field name="from_no"/>-->
+<!--					<field name="to_no"/>-->
+<!--					<field name="total_supplier" readonly="1"/>-->
+<!--					<field name="partner_ids" domain="[('supplier_rank','&gt;', 0)]" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True}"/>-->
+                    <field name="company_id" options="{'no_create': True, 'no_create_edit': True}" invisible="1"/>
+	            </group>
+	            <footer>
+                    <button name="print_pdf_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+	        </form>
+		</field>
+	</record>
+
+	<record id="action_customer_sale_report" model="ir.actions.act_window">
+		<field name="name">Customer Sales Report</field>
+		<field name="res_model">customer.sale.report</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_customer_sale_report"/>
+		<field name="target">new</field>
+	</record>
+
+
+	<menuitem id="menu_customer_sale_report" name="Customer Sales Analysis" parent="sale.menu_sale_report" sequence="98" action="action_customer_sale_report"/>
+
+
+
+
+
+
+</odoo>
