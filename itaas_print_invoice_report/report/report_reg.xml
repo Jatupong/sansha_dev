@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--        #################################################################################-->
+        <record id="paperformat_A4_Zero_Margin_ACC_v10" model="report.paperformat">
+            <field name="name">A4_Zero_Margin_ACC_v10</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+
+        <!--        #####################################################################################-->
+
+        <record id="paperformat_A4_Zero_Margin_Creditnote" model="report.paperformat">
+            <field name="name">A4_Zero_Margin_Creditnote</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">120</field>
+            <field name="margin_bottom">45</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">115</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report
+                id="credit_note_report"
+                model="account.move"
+                menu="True"
+                report_type="qweb-pdf"
+                string="ใบลดหนี้/ใบกำกับภาษี(A4)"
+                paperformat="itaas_print_invoice_report.paperformat_A4_Zero_Margin_Creditnote"
+                name="itaas_print_invoice_report.credit_note_report_id"
+                file="itaas_print_invoice_report.credit_note_report_id"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+        <!--                attachment="(object.state in ('open','paid')) and ('CN'+(object.number or '').replace('/','')+'.pdf')"-->
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+
+        <record id="paperformat_A4_Zero_Margin_Invoice" model="report.paperformat">
+            <field name="name">paperformat_A4_Zero_Margin_Invoice</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">120</field>
+            <field name="margin_bottom">45</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">115</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="paperformat_A4_Zero_Margin_Invoice_only" model="report.paperformat">
+            <field name="name">paperformat_A4_Zero_Margin_Invoice_only</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">92</field>
+            <field name="margin_bottom">60</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">92</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_A4_Zero_Margin_Tax_Invoice_only" model="report.paperformat">
+            <field name="name">paperformat_A4_Zero_Margin_Tax_Invoice_only</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">100</field>
+            <field name="margin_bottom">50</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">91</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+
+        ########### Example for DOT #################
+        <record id="paperformat_Letter_Customer_invoice_receipt_dot" model="report.paperformat">
+            <field name="name">paperformat_Letter_Customer_invoice_receipt_dot</field>
+            <field name="default" eval="False"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">100</field>
+            <field name="margin_bottom">58</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">95</field>
+            <field name="dpi">90</field>
+        </record>
+        ########### Example for DOT #################
+
+
+        <report
+                id="debitnote_report"
+                model="account.move"
+                menu="True"
+                report_type="qweb-pdf"
+                string="ใบเพิ่มหนี้/ใบกำกับภาษี(A4)"
+                paperformat="itaas_print_invoice_report.paperformat_A4_Zero_Margin_Invoice"
+                name="itaas_print_invoice_report.debitnote_report_id"
+                file="itaas_print_invoice_report.debitnote_report_id"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+        <!--                attachment="(object.state in ('open','paid')) and ('DN'+(object.number or '').replace('/','')+'.pdf')"-->
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+
+        <!--Invoice-->
+        <report
+                id="invoice_and_tax_invoice_report"
+                model="account.move"
+                menu="True"
+                report_type="qweb-pdf"
+                string="ใบแจ้งหนี้/ใบกำกับภาษี(A4)"
+                paperformat="itaas_print_invoice_report.paperformat_A4_Zero_Margin_Invoice"
+                name="itaas_print_invoice_report.invoice_and_tax_invoice_report_id"
+                file="itaas_print_invoice_report.invoice_and_tax_invoice_report_id"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+
+
+
+        <!--        <record id="paperformat_A4_Zero_Margin_Tex_Invoice" model="report.paperformat">-->
+        <!--            <field name="name">paperformat_A4_Zero_Margin_Tex_Invoice</field>-->
+        <!--            <field name="default" eval="False"/>-->
+        <!--            <field name="format">A4</field>-->
+        <!--            <field name="orientation">Portrait</field>-->
+        <!--            <field name="margin_top">100</field>-->
+        <!--            <field name="margin_bottom">45</field>-->
+        <!--            <field name="margin_left">5</field>-->
+        <!--            <field name="margin_right">5</field>-->
+        <!--            <field name="header_line" eval="False"/>-->
+        <!--            <field name="header_spacing">98</field>-->
+        <!--            <field name="dpi">90</field>-->
+        <!--        </record>-->
+        <!--        <report-->
+        <!--                id="invoice_report"-->
+        <!--                model="account.move"-->
+        <!--                menu="True"-->
+        <!--                report_type="qweb-pdf"-->
+        <!--                string="ใบแจ้งหนี้/ใบส่งของ(A4)"-->
+        <!--                paperformat="itaas_print_invoice_report.paperformat_A4_Zero_Margin_Tex_Invoice"-->
+        <!--                name="itaas_print_invoice_report.invoice_report_id"-->
+        <!--                file="itaas_print_invoice_report.invoice_report_id"-->
+        <!--        />-->
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+        <!--                attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"-->
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+        <report
+                id="account.account_invoices"
+                model="account.move"
+                string="Invoices"
+                menu="False"
+                report_type="qweb-pdf"
+                name="account.report_invoice_with_payments"
+                file="account.report_invoice_with_payments"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+        <!--                groups="account.group_account_invoice"-->
+
+
+        <report
+                id="account.account_invoices_without_payment"
+                model="account.move"
+                string="Invoices without Payment"
+                menu="False"
+                report_type="qweb-pdf"
+                name="account.report_invoice"
+                file="account.report_invoice"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+        #################### This is example for DOT                    ##############
+        #################### change menu = True and correct other value ###################
+        <report
+                id="customer_invoice_receipt_dot"
+                model="account.move"
+                menu="False"
+                report_type="qweb-pdf"
+                string="ใบเสร็จรับเงิน(DOT)"
+                paperformat="paperformat_Letter_Customer_invoice_receipt_dot"
+                name="itaas_print_invoice_report.invoice_receipt_dot_id"
+                file="itaas_print_invoice_report.invoice_receipt_dot_id"
+        />
+        <!--                print_report_name="(object._get_printed_report_name())"-->
+
+
+
+
+    </data>
+
+
+    <record id="Paperformat_Custom_Margin_Tex_Invoice" model="report.paperformat">
+        <field name="name">Margin_Tex_Invoice</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">209</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">125</field>
+        <field name="margin_bottom">45</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">120</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="Paperformat_Tex_Invoice_Original_Receipt" model="report.paperformat">
+        <field name="name">Original_Receipt</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">209</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">125</field>
+        <field name="margin_bottom">45</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">123</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="paperformat_Tax_Invoice_Original_Receipt_report" model="report.paperformat">
+        <field name="name">Original_Receipt_report</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">209</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">120</field>
+        <field name="margin_bottom">45</field>
+        <field name="margin_left">3</field>
+        <field name="margin_right">3</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">115</field>
+        <field name="dpi">90</field>
+    </record>
+    <report
+            id="invoice_report"
+            model="account.move"
+            menu="True"
+            report_type="qweb-pdf"
+            string="ใบแจ้งหนี้/ใบส่งของ(A4)"
+            paperformat="itaas_print_invoice_report.Paperformat_Custom_Margin_Tex_Invoice"
+            name="itaas_print_invoice_report.invoice_report_id"
+            file="itaas_print_invoice_report.invoice_report_id"
+    />
+
+
+    <report
+            id="tax_invoice_report"
+            model="account.move"
+            menu="True"
+            report_type="qweb-pdf"
+            string="ใบกำกับภาษี(A4)"
+            paperformat="itaas_print_invoice_report.paperformat_Tax_Invoice_Original_Receipt_report"
+            name="itaas_print_invoice_report.tax_invoice_report_id"
+            file="itaas_print_invoice_report.tax_invoice_report_id"
+    />
+
+    <report
+            id="tax_invoice_and_receipt_report"
+            model="account.move"
+            menu="True"
+            report_type="qweb-pdf"
+            string="ใบกำกับภาษี/ใบเสร็จรับเงิน(A4)"
+            paperformat="itaas_print_invoice_report.paperformat_Tax_Invoice_Original_Receipt_report"
+            name="itaas_print_invoice_report.tax_invoice_and_receipt_report_id"
+            file="itaas_print_invoice_report.tax_invoice_and_receipt_report_id"
+    />
+
+      <report
+            id="receipt_report"
+            model="account.move"
+            menu="True"
+            report_type="qweb-pdf"
+            string="ใบเสร็จรับเงิน(A4)"
+            paperformat="itaas_print_invoice_report.paperformat_Tax_Invoice_Original_Receipt_report"
+            name="itaas_print_invoice_report.receipt_report_id"
+            file="itaas_print_invoice_report.receipt_report_id"
+    />
+
+</openerp>

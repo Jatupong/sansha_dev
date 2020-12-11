@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_print_purchase_report_form" model="ir.ui.view">
+        <field name="name">Print purchase Report</field>
+        <field name="model">print.purchase.report</field>
+        <field name="arch" type="xml">
+            <form string="Print purchases Order">
+                <group>
+                    <group>
+                        <field name="report_type" required="1" />
+                        <field name="show_product_code_on_purchase"/>
+                    </group>
+                    <group>
+                        <field name="partner_id" domain="[('is_purchase_report','=',True)]" options="{'no_create': True, 'no_create_edit': True}"
+                               attrs="{'invisible': [('report_type', '!=', 'dummy')],'required': [('report_type', '=', 'dummy')]}" />
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_report_pdf" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_print_purchase_report" model="ir.actions.act_window">
+        <field name="name">Print Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">print.purchase.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <!-- TODO: check if we need this -->
+        <field name="binding_model_id" ref="purchase.model_purchase_order" />
+        <field name="view_id" ref="view_print_purchase_report_form"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_account_move_form_show_discount_amount" model="ir.ui.view">
+        <field name="name">account_move_line_tree_discount</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.move.line"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='invoice_line_tax_ids']" position="after">
+                <field name="discount_amount"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

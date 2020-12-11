@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_partner_form_purchase_report" model="ir.ui.view">
+        <field name="name">res.partner.form.purchase.report</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='sales_purchases']" position="inside">
+                <group string="Report">
+                    <group>
+                        <field name="is_purchase_report"/>
+                    </group>
+                </group>
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>

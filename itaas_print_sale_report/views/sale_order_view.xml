@@ -1,0 +1,18 @@
+<odoo>
+
+    <record id="sale_order_report_setting_form" model="ir.ui.view">
+        <field name="name">sale.order.report.setting.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='other_information']" position="inside">
+                <group>
+                    <field name="show_product_code_on_sale"/>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

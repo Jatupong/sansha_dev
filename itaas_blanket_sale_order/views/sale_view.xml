@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="domain">[('order_type', '!=', 'blanket')]</field>
+    </record>
+    <record id="sale.action_orders" model="ir.actions.act_window">
+        <field name="domain">[('order_type', '!=', 'blanket'), ('state', 'not in', ('draft', 'sent', 'cancel'))]</field>
+    </record>
+</odoo>

@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_landed_costs_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="header">
+                    <style>
+                        table.table-nobordered{
+                        border:1px solid white;
+                        margin-top:20px;
+                        border-collapse: collapse;
+                        width: 100%;
+                        }
+                        table.table-nobordered &gt; thead &gt; tr &gt; th{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+                        table.table-nobordered &gt; thead &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-nobordered &gt; tbody &gt; tr &gt; td{
+                        border:0px solid white;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        height: 10px;
+                        }
+                        table.table-nobordered &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid white;
+                        border-collapse: collapse;
+                        }
+
+                        table.table-bordered1{
+                        border:1px solid black;
+                        margin-top:20px;
+                        border-collapse: collapse;
+                        width: 100%;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; th{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; thead &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered1 &gt; tbody &gt; tr &gt; td{
+                        border:0px solid white;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        height: 40px;
+                        }
+                        table.table-bordered1 &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered &gt; thead &gt; tr &gt; th{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered &gt; tbody &gt; tr &gt; td{
+                        border:1px solid black;
+                        <!--border-left: 1px solid;-->
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                    </style>
+                    <div class="col-xs-3">
+                    </div>
+                    <div class="col-xs-3" style="position:absolute;left:25px;top:20px;">
+                        <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % to_text(o.company_id.logo)" style="max-height: 230px; max-width: 180px;"/>
+                    </div>
+                    <div class="col-xs-9">
+                        <font style="font-size: 16px;text-align:center">
+                            <br/>
+                            <strong><span t-field="o.company_id.name"/></strong>
+<!--                            <t t-if="o.company_id.show_head_office">-->
+                                &amp;nbsp;<strong>(สำนักงานใหญ่)</strong><br/>
+<!--                            </t>-->
+<!--                            <t t-if="not o.company_id.show_head_office">-->
+<!--                                <br/>-->
+<!--                            </t>-->
+                        </font>
+                        <font style="font-size: 15px;">
+                            <span t-if="o.company_id.building"><span t-field="o.company_id.building"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.roomnumber">ห้องที่&amp;nbsp;<span t-field="o.company_id.roomnumber"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.floornumber">ชั้นที่&amp;nbsp;<span t-field="o.company_id.floornumber"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.village">หมู่บ้าน&amp;nbsp;<span t-field="o.company_id.village"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.house_number"><span t-field="o.company_id.house_number"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.moo_number">&amp;nbsp;<span t-field="o.company_id.moo_number"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.soi_number">ซอย&amp;nbsp;<span t-field="o.company_id.soi_number"/>&amp;nbsp;</span>
+                            <span t-if="o.company_id.street"><span t-esc="o.company_id.street"/></span>
+                            <!--<span t-if="o.company_id.street2"><span t-esc="o.company_id.street2"/>&amp;nbsp;</span>-->
+                            <span t-if="o.company_id.city and o.company_id.state_id and o.company_id.state_id.code == 'BKK'">&amp;nbsp;<span t-field="o.company_id.city"/></span>
+                            <span t-if="o.company_id.city and o.company_id.state_id and o.company_id.state_id.code != 'BKK'">อ.&amp;nbsp;<span t-field="o.company_id.city"/></span>
+                            <span t-if="o.company_id.state_id and o.company_id.state_id.code == 'BKK'">&amp;nbsp;<span t-field="o.company_id.state_id.name"/></span>
+                            <span t-if="o.company_id.state_id and o.company_id.state_id.code != 'BKK'">จังหวัด&amp;nbsp;<span t-field="o.company_id.state_id.name"/></span>
+                            <span t-if="o.company_id.zip"><span t-esc="o.company_id.zip"/></span><br/>
+                            <!--<span t-if="o.company_id.country_id.name"><span t-esc="o.company_id.country_id.name"/></span><br/>-->
+                            <span t-if="o.company_id.phone">โทร/Tel :&amp;nbsp;<span t-esc="o.company_id.phone"/></span>
+                            <span t-if="o.company_id.email">อีเมล/E-mail :&amp;nbsp;<span t-esc="o.company_id.email"/></span><br/>
+                            <span t-if="o.company_id.vat">เลขประจำตัวผู้เสียภาษี/Tax :&amp;nbsp;<span t-esc="o.company_id.vat"/></span>
+                        </font>
+                        <br/><br/><br/>
+                    </div>
+
+                    <table width="100%">
+                        <tr>
+                            <td style="text-align: center;">
+                                <font style="font-size: 16px;">
+                                    <strong>Landed Costs</strong>
+                                </font>
+                                <br/><br/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%">
+                        <tr>
+                            <td width="50%"/>
+                            <td width="50%" style="text-align: right;">
+                                <font style="font-size: 16px;">
+                                    <strong>เลขที่เอกสาร</strong>&amp;nbsp;<span t-esc="o.name"/><br/>
+                                    <strong>วันที่เอกสาร</strong>&amp;nbsp;<span t-field="o.date"/><br/>
+                                    <t t-if="o.note">
+                                        <strong>Remark</strong>&amp;nbsp;<span t-field="o.note"/><br/>
+                                    </t>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="page">
+                    <style>
+                        table.table-bordered {
+                        border:1px solid black;
+                        }
+                        table.table-bordered &gt; thead &gt; tr &gt; th{
+                        border:1px solid black;
+                        }
+                        table.table-bordered &gt; tbody &gt; tr &gt; td{
+                        border:0px solid white;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                    </style>
+
+
+                    <t t-set="max_body_height" t-value="150"/>
+                    <t t-set="new_line_height" t-value="5"/>
+                    <t t-set="row_line_height" t-value="5"/>
+                    <t t-set="max_line_lenght" t-value="20"/>
+
+                    <t t-set="break_line" t-value="o.get_break_line(max_body_height,new_line_height,row_line_height,max_line_lenght)"/>
+                    <t t-set="start" t-value="0"/>
+                    <t t-set="end" t-value="0"/>
+
+                    <t t-set="qty" t-value="0"/>
+                    <t t-set="unit" t-value="0"/>
+                    <t t-set="cost" t-value="0"/>
+                    <t t-set="addition" t-value="0"/>
+
+
+                    <t t-foreach="range(0,len(break_line),1)" t-as="x">
+
+                        <table width="100%" style="border:1px solid black;height:172mm;border-collapse:collapse;">
+                            <table width="100%" style="height:172mm;" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="5%" style="text-align:center">
+                                            <font style="font-size: 15px;">ลำดับที่</font>
+                                        </th>
+                                        <th width="20%" style="text-align:center">
+                                            <font style="font-size: 15px;">Cost Line</font>
+                                        </th>
+                                        <th width="25%" style="text-align:center">
+                                            <font style="font-size: 15px;">Product</font>
+                                        </th>
+                                        <th width="10%" style="text-align:center">
+                                            <font style="font-size: 15px;">Quantity</font>
+                                        </th>
+                                        <th width="13%" style="text-align:center">
+                                            <font style="font-size: 15px;">Former Unit Cost</font>
+                                        </th>
+                                        <th width="14%" style="text-align:center">
+                                            <font style="font-size: 15px;">Former Cost</font>
+                                        </th>
+                                        <th width="13%" style="text-align:center">
+                                            <font style="font-size: 15px;">Additional Cost</font>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-set="i" t-value="0"/>
+                                    <t t-foreach="range(start,break_line[x],1)" t-as="y">
+                                        <t t-if="(y+1)!=(break_line[x])">
+                                            <t t-set="i" t-value="i+1"/>
+                                            <tr height="40px">
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-esc="y+1"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-field="o.valuation_adjustment_lines[y].product_id.default_code"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:left;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-field="o.valuation_adjustment_lines[y].product_id.name"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="qty" t-value="qty + o.valuation_adjustment_lines[y].quantity"/>
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].quantity))"/>
+
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="unit" t-value="unit + o.valuation_adjustment_lines[y].former_cost_per_unit"/>
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].former_cost_per_unit))"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="cost" t-value="cost + o.valuation_adjustment_lines[y].former_cost"/>
+
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].former_cost))"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right; ">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="addition" t-value="addition + o.valuation_adjustment_lines[y].additional_landed_cost"/>
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].additional_landed_cost))"/>
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="(y+1)==(break_line[x])">
+                                            <t t-set="i" t-value="i+1"/>
+                                            <tr>
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-esc="y+1"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-field="o.valuation_adjustment_lines[y].product_id.default_code"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:left;">
+                                                    <font style="font-size: 14px;">
+                                                        <span t-field="o.valuation_adjustment_lines[y].product_id.name"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:center;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="qty" t-value="qty + o.valuation_adjustment_lines[y].quantity"/>
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].quantity))"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="unit" t-value="unit + o.valuation_adjustment_lines[y].former_cost_per_unit"/>
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].former_cost_per_unit))"/>
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="cost" t-value="cost + o.valuation_adjustment_lines[y].former_cost"/>
+
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].former_cost))"/>
+
+                                                    </font>
+                                                </td>
+                                                <td style="text-align:right; ">
+                                                    <font style="font-size: 14px;">
+                                                        <t t-set="addition" t-value="addition + o.valuation_adjustment_lines[y].additional_landed_cost"/>
+
+                                                        <span t-esc="'{0:,.2f}'.format(float(o.valuation_adjustment_lines[y].additional_landed_cost))"/>
+
+                                                    </font>
+                                                </td>
+                                            </tr>
+                                            <t t-set="end" t-value="(break_line[x])"/>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <t t-set="start" t-value="break_line[x]"/>
+                            <p style="page-break-after:always;"/>
+                        </table>
+
+                    </t>
+
+                </div>
+                <div class="footer">
+                    <style>
+                        table.table-bordered {
+                        border:1px solid black;
+                        }
+                        table.table-bordered &gt; thead &gt; tr &gt; th{
+                        border:1px solid black;
+                        }
+                        table.table-bordered &gt; tbody &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-left: 1px solid black;
+                        border-collapse: collapse;
+                        }
+                        table.table-bordered &gt; tfoot &gt; tr &gt; td{
+                        border:1px solid black;
+                        border-collapse: collapse;
+                        }
+                    </style>
+                    <table width="100%" class="table table-bordered" style="border-bottom:1px solid black;">
+                        <tr>
+                            <td width="407px" style="text-align:right;">
+                                <div class="last-page">
+                                    <font>
+                                        <b>รวม</b>
+                                    </font>
+                                </div>
+                            </td>
+                            <td width="81px"  style="text-align:right;">
+                                <div class="last-page">
+                                    <span t-esc="'{0:,.2f}'.format(float(qty))"/>
+                                </div>
+                            </td>
+                            <td width="105px" style="text-align:right;">
+                                <div class="last-page">
+                                    <span t-esc="'{0:,.2f}'.format(float(unit))"/>
+                                </div>
+                            </td>
+                            <td width="113px" style="text-align:right;">
+                                <div class="last-page">
+                                    <span t-esc="'{0:,.2f}'.format(float(cost))"/>
+                                </div>
+                            </td>
+                            <td  style="text-align:right;">
+                                <div class="last-page">
+                                    <span t-esc="'{0:,.2f}'.format(float(addition))"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align:left;">
+                                <font>
+                                    <b>หมายเหตุ:</b> <span t-field="o.note"/>
+                                </font>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table width="100%" class="table table-bordered" style="margin-top:-20px">
+                        <tr>
+                            <td width="55%">
+                                <table width="100%">
+                                    <tr>
+                                        <td style="text-align:center">
+                                            <font style="font-size:14px; ">
+                                                <br/><br/><br/>
+                                                <span>_____________________________________</span><br/><br/>
+                                                <span>_____/_______/______</span><br/><br/>
+                                                <b>ผู้จัดทำ</b>
+                                            </font>
+                                        </td>
+                                        <td style="text-align:center">
+                                            <font style="font-size:14px; ">
+                                                <br/><br/><br/>
+                                                <span>_____________________________________</span><br/><br/>
+                                                <span>_____/_______/______</span><br/><br/>
+                                                <b>ผู้อนุมัติ</b>
+                                            </font>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

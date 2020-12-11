@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_stock_landed_cost_form_add_note" model="ir.ui.view">
+        <field name="name">stock.landed.cost.form.note</field>
+        <field name="model">stock.landed.cost</field>
+        <field name="inherit_id" ref="stock_landed_costs.view_stock_landed_cost_form"/>
+        <field name="arch" type="xml">
+            <field name="picking_ids" position="after">
+                <field name="note"/>
+            </field>
+
+
+        </field>
+    </record>
+
+</odoo>
